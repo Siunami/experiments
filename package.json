@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "heroku-postbuild": "cd client && npm && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   }
 }
