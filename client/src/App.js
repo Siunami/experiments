@@ -36,7 +36,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar color="faded" light>
-            <NavbarBrand href="/" className="mr-auto">Experiments</NavbarBrand>
+            <NavbarBrand href="/" className="mr-auto ml-auto">Experiments</NavbarBrand>
             {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
