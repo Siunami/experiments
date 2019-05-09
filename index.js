@@ -1,11 +1,15 @@
 const express = require('express');
 const path = require('path');
-const keys = require('./keys');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('./models/logbook')
 
-mongoose.connect(keys.mongoURI);
+if (process.env.mongoURI){
+  mongoose.connect(process.env.mongoURI);
+} else {
+  const keys = require('./keys');
+  mongoose.connect(keys.mongoURI);
+}
 
 const app = express();
 
