@@ -30,15 +30,14 @@ app.get('/api', (req, res) => {
 
 app.post('/api/first/new',(req,res) => {
   console.log(req.body);
-  // console.log(res);
   var ip = req.headers['x-forwarded-for'] || 
      req.connection.remoteAddress || 
      req.socket.remoteAddress ||
      (req.connection.socket ? req.connection.socket.remoteAddress : null);
-  console.log(ip);
   new LogBook({
     name:req.body.name,
-    comment:req.body.comment
+    comment:req.body.comment,
+    ip: ip
   }).save()
   res.send("hi");
 })
@@ -48,8 +47,16 @@ app.get('/api/first', (req,res) => {
     if (err){
       res.send([])
     }
-    console.log(posts);
-    res.json(posts)
+    let newPosts = []
+    for (let el in posts){
+      newPosts.push({
+        name:posts[el].name,
+        comment:posts[el].comment,
+        time:posts[el].time
+      });
+    }
+    console.log(newPosts);
+    res.json(newPosts)
   })
 
 })

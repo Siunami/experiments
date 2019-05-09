@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 var logbook = new Schema({
     name: String,
     comment: String,
-    time: {type: Date, default: Date.now}
+    time: {type: Date, default: Date.now},
+    ip:String
 });
 mongoose.model('logbook', logbook)
