@@ -25,18 +25,29 @@ app.get('/api', (req, res) => {
 });
 
 app.post('/api/first/new',(req,res) => {
-  console.log(req);
+  console.log(req.body);
   // console.log(res);
   var ip = req.headers['x-forwarded-for'] || 
      req.connection.remoteAddress || 
      req.socket.remoteAddress ||
      (req.connection.socket ? req.connection.socket.remoteAddress : null);
   console.log(ip);
+  new LogBook({
+    name:req.body.name,
+    comment:req.body.comment
+  }).save()
   res.send("hi");
 })
 
 app.get('/api/first', (req,res) => {
-  res.json([{"text":"Matthew"}])
+  LogBook.find({},function(err, posts){
+    if (err){
+      res.send([])
+    }
+    console.log(posts);
+    res.json(posts)
+  })
+
 })
 
 // The "catchall" handler: for any request that doesn't

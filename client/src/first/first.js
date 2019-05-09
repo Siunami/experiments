@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Moment from 'moment';
 
 import { Jumbotron,InputGroup, Input, Button } from 'reactstrap';
 
@@ -8,13 +9,15 @@ export default class First extends Component {
         super()
         this.state = {
             data:[],
-            name:""
+            name:"",
+            comment:""
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
     }
 
-    componentDidMount(){
+    getData(){
         axios.get('/api/first').then(res => {
             console.log(res);
             this.setState((prev,curr) => ({ 
@@ -23,13 +26,28 @@ export default class First extends Component {
         })
     }
 
+    componentDidMount(){
+        this.getData()
+    }
+
     handleClick(event){
         event.preventDefault();
-        console.log("got here");
-        console.log(this.state.name);
-        axios.post('/api/first/new',{"name":this.state.name}).then((req,res) => {
-            console.log(req);
-        })
+        if (this.state.name != "" && this.state.comment != ""){
+            axios.post('/api/first/new',{"name":this.state.name,"comment":this.state.comment}).then(res => {
+                console.log(res);
+                this.getData()
+                this.setState((prev,curr) => ({
+                    name:"",
+                    comment:""
+                }))
+            })
+        } else {
+            alert("Fill out both parts first!")
+        }
+    }
+
+    handleCommentChange(event){
+        this.setState({comment: event.target.value});
     }
 
     handleChange(event){
@@ -46,13 +64,16 @@ export default class First extends Component {
                     <InputGroup className="md-6">
                         <Input value={this.state.name} onChange={this.handleChange} placeholder="name"/>
                     </InputGroup>
+                    <InputGroup className="md-6">
+                        <Input value={this.state.comment} onChange={this.handleCommentChange} placeholder="comment"/>
+                    </InputGroup>
                     <p className="lead">
                         <Button color="primary" onClick={this.handleClick}>Submit</Button>
                     </p>
                 </Jumbotron>
                 <h3>Logbook</h3>
                 {this.state.data.map((d,id) => {
-                    return <p key={id}>{d.text}</p>
+                    return <p key={id}>{d.comment} - {d.name} on {Moment(d.time).format("MM-DD-YYYY")}</p>
                 })}
             </div>
         )
