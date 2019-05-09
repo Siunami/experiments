@@ -1,16 +1,43 @@
 const express = require('express');
 const path = require('path');
+const keys = require('./keys');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+require('./models/logbook')
+
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
+
+const LogBook = mongoose.model('logbook')
 
 // Put all API endpoints under '/api'
 app.get('/api', (req, res) => {
   console.log("got here")
   res.json({"text":"Got data"});
 });
+
+app.post('/api/first/new',(req,res) => {
+  console.log(req);
+  // console.log(res);
+  var ip = req.headers['x-forwarded-for'] || 
+     req.connection.remoteAddress || 
+     req.socket.remoteAddress ||
+     (req.connection.socket ? req.connection.socket.remoteAddress : null);
+  console.log(ip);
+  res.send("hi");
+})
+
+app.get('/api/first', (req,res) => {
+  res.json([{"text":"Matthew"}])
+})
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
