@@ -87,7 +87,7 @@ export default class Soundscape extends Component {
         }
         return (
             <div>
-                <h2>Soundscape</h2>
+                <br/>
                 {experience}
                 <br/>
                 <button onClick={this.decrementSelector}>←</button>
