@@ -7,7 +7,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import First from './first/first';
-import Soundscape from './Soundscapes/soundscape'
+import Soundscape from './Soundscapes/soundscape';
+import Drawing from './Drawing/drawing';
 
 function Index(){
   return (
@@ -17,9 +18,11 @@ function Index(){
         <Col><p><a href="/hello">Hello! 👋</a></p></Col>
       </Row>
       <Row>
-        <Col><p><a href="/soundscape">Soundscape</a></p></Col>
+        <Col><p><a href="/soundscape">Soundscape 🗻</a></p></Col>
       </Row>
-      
+      <Row>
+        <Col><p><a href="/drawing">Drawing 🎨</a></p></Col>
+      </Row>
     </Container>
   )
 }
@@ -55,6 +58,7 @@ class App extends Component {
           <Route path="/" exact component={Index} />
           <Route path="/hello/" component={First} />
           <Route path="/soundscape/" component={Soundscape} />
+          <Route path="/drawing/" component={Drawing} />
         </div>
       </Router>
     );
