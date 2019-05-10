@@ -65,9 +65,11 @@ export default class First extends Component {
                     <InputGroup className="md-6">
                         <Input value={this.state.name} onChange={this.handleChange} placeholder="name"/>
                     </InputGroup>
+                    <br/>
                     <InputGroup className="md-6">
                         <Input value={this.state.comment} onChange={this.handleCommentChange} placeholder="comment"/>
                     </InputGroup>
+                    <br/>
                     <p className="lead">
                         <Button color="primary" onClick={this.handleClick}>Submit</Button>
                     </p>
