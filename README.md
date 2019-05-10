@@ -21,3 +21,4 @@ Turn Drawing into a simpe paint app. Can download images at any time and create 
 
 Input a URL, display all images from that page. 
 - Can also download images to desktop or a folder.
+- Might need to spawn a python process for BS4 library. [Reference](https://stackoverflow.com/questions/23450534/how-to-call-a-python-function-from-node-js)
