@@ -12,10 +12,12 @@ Future: Might try to make tutorials for the ones that are popular
 
 [Hello👋](https://afternoon-oasis-58074.herokuapp.com/hello): My first experiment. A log book for anyone who visits to leave a comment.
 
-[Soundscape](https://afternoon-oasis-58074.herokuapp.com/soundscape): Visual-auditory gallery experience.
+[Soundscape🗻](https://afternoon-oasis-58074.herokuapp.com/soundscape): Visual-auditory gallery experience.
 
 
 ### Idea
+
+Turn Drawing into a simpe paint app. Can download images at any time and create blank canvas
 
 Input a URL, display all images from that page. 
 - Can also download images to desktop or a folder.
