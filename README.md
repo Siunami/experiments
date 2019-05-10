@@ -14,11 +14,8 @@ Future: Might try to make tutorials for the ones that are popular
 
 [Soundscape🗻](https://afternoon-oasis-58074.herokuapp.com/soundscape): Visual-auditory gallery experience.
 
+[Image Cutter ✂️](https://afternoon-oasis-58074.herokuapp.com/imagescraper): Grabs all images from a wikipedia page.
 
 ### Idea
 
 Turn Drawing into a simpe paint app. Can download images at any time and create blank canvas
-
-Input a URL, display all images from that page. 
-- Can also download images to desktop or a folder.
-- Might need to spawn a python process for BS4 library. [Reference](https://stackoverflow.com/questions/23450534/how-to-call-a-python-function-from-node-js)
