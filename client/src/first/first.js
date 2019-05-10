@@ -58,7 +58,8 @@ export default class First extends Component {
         return (
             <div>
                 <Jumbotron>
-                    <p>Thanks for checking out my site! Hope you find something interesting.</p>
+                    <h3>Hello! 👋</h3>
+                    <p>Thanks for checking out my site. Hope you find something interesting here.</p>
                     <p>Feel free to add your name and a comment in the log book</p>
 
                     <InputGroup className="md-6">
