@@ -14,6 +14,7 @@ export default class Soundscape extends Component {
                 <ReactAudioPlayer
                 src={oceanSound}
                 autoPlay
+                loop
                 />
                 <img className="image" src={ocean} alt="Ocean" />
             </div>
