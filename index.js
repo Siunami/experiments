@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cheerio = require('cheerio');
+const axios = require('axios');
 require('./models/logbook')
 
 if (process.env.mongoURI){
@@ -59,6 +61,19 @@ app.get('/api/first', (req,res) => {
     res.json(newPosts)
   })
 
+})
+
+app.get('/api/imagecutter', (req,res) => {
+  axios.get(req.query.url).then(r => {
+    const $ = cheerio.load(r.data);
+    data = []
+    $('body').find('img').each((i,e) => {
+      if (e.attribs.src && e.attribs.src.match('^//upload.wikimedia.org')) {
+        data.push("https:" + e.attribs.src)
+      }
+    });
+    res.json(data);
+  });
 })
 
 // The "catchall" handler: for any request that doesn't

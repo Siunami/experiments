@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import First from './first/first';
 import Soundscape from './Soundscapes/soundscape';
-import Drawing from './Drawing/drawing';
+// import Drawing from './Drawing/drawing';
+import ImageCutter from './ImageCutter/imagecutter';
 
 function Index(){
   return (
@@ -20,8 +21,11 @@ function Index(){
       <Row>
         <Col><p><a href="/soundscape">Soundscape 🗻</a></p></Col>
       </Row>
-      <Row>
+      {/* <Row>
         <Col><p><a href="/drawing">Drawing 🎨</a></p></Col>
+      </Row> */}
+      <Row>
+        <Col><p><a href="/imagescraper">Image Cutter ✂️</a></p></Col>
       </Row>
     </Container>
   )
@@ -58,7 +62,8 @@ class App extends Component {
           <Route path="/" exact component={Index} />
           <Route path="/hello/" component={First} />
           <Route path="/soundscape/" component={Soundscape} />
-          <Route path="/drawing/" component={Drawing} />
+          {/* <Route path="/drawing/" component={Drawing} /> */}
+          <Route path="/imagescraper/" component={ImageCutter} />
         </div>
       </Router>
     );
