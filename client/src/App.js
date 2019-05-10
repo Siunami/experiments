@@ -7,13 +7,17 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import First from './first/first';
+import Soundscape from './Soundscapes/soundscape'
 
 function Index(){
   return (
     <Container>
       <br/>
       <Row>
-        <Col><p><a href="/first">First</a></p></Col>
+        <Col><p><a href="/hello">Hello! 👋</a></p></Col>
+      </Row>
+      <Row>
+        <Col><p><a href="/soundscape">Soundscape</a></p></Col>
       </Row>
       
     </Container>
@@ -49,7 +53,8 @@ class App extends Component {
             </Collapse> */}
           </Navbar>
           <Route path="/" exact component={Index} />
-          <Route path="/first/" component={First} />
+          <Route path="/hello/" component={First} />
+          <Route path="/soundscape/" component={Soundscape} />
         </div>
       </Router>
     );
