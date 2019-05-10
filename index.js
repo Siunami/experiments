@@ -67,7 +67,7 @@ app.get('/api/imagecutter', (req,res) => {
   axios.get(req.query.url).then(r => {
     const $ = cheerio.load(r.data);
     data = []
-    $('body').find('img').each((i,e) => {
+    $('#content').find('img').each((i,e) => {
       if (e.attribs.src && e.attribs.src.match('^//upload.wikimedia.org')) {
         data.push("https:" + e.attribs.src)
       }
