@@ -63,27 +63,17 @@ export default class Soundscape extends Component {
     }
 
     decrementSelector(){
-        if (this.state.selection - 1 == 0){
-            this.setState((prev,curr) => ({
-                selection: this.state.max
-            }))
-        } else {
-            this.setState((prev,curr) => ({
-                selection: this.state.selection - 1
-            }))
-        }
+        let newSelection = this.state.selection == 1 ? this.state.max : this.state.selection - 1;
+        this.setState((prev,curr) => ({
+            selection: newSelection
+        }))
     }
 
     incrementSelector(){
-        if (this.state.selection == 3){
-            this.setState((prev,curr) => ({
-                selection: 1
-            }))
-        } else {
-            this.setState((prev,curr) => ({
-                selection: this.state.selection + 1
-            }))
-        }
+        let newSelection = this.state.selection == 3 ? 1 : this.state.selection + 1;
+        this.setState((prev,curr) => ({
+            selection: newSelection
+        }))
     }
 
     render(){
