@@ -21,7 +21,7 @@ function MainPage(){
       <p><a href="/hello">Hello! 👋</a></p>
       <p><a href="/soundscape">Soundscape 🗻</a></p>
       <p><a href="/imagescraper">Image Cutter ✂️</a></p>
-      <p><a href="/practiceCSS/card/">Practice CSS ✍</a></p>
+      <p><a href="/CSS/card/">Profile Card 😀</a></p>
       {/* <p><a href="/pythonprocess">Python Process Runner 🐍</a></p> */}
       {/* <p><a href="/drawing">Drawing 🎨</a></p> */}
       {/* <Row>
@@ -76,7 +76,7 @@ class App extends Component {
           <Route path="/soundscape/" component={Soundscape} />
           {/* <Route path="/drawing/" component={Drawing} /> */}
           <Route path="/imagescraper/" component={ImageCutter} />
-          <Route path="/practiceCSS/card/" component={ProfileCard}/>
+          <Route path="/CSS/card/" component={ProfileCard}/>
           <Route path="/practiceCSS/landing/" component={LandingPage}/>
           {/* <Route path="/pythonprocess/" component={PythonProcess} /> */}
         </div>
