@@ -76,6 +76,31 @@ app.get('/api/imagecutter', (req,res) => {
   });
 })
 
+
+
+app.get('/api/pythonprocess/', (req,res) => {
+  const { spawn } = require('child_process');
+  const pyprog = spawn('python', ['pypy.py']);
+
+  pyprog.stdout.on('data', function(data) {
+
+      res.json(data.toString('utf8'));
+      
+  });
+
+  pyprog.stderr.on('data', (data) => {
+
+      res.json(data.toString('utf8'));
+  });
+  pyprog.then(result => {
+    console.log(result);
+    res.send(result);
+  }).catch(err => {
+    console.log(err);
+    res.send("");
+  })
+})
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {

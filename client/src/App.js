@@ -10,11 +10,15 @@ import First from './first/first';
 import Soundscape from './Soundscapes/soundscape';
 // import Drawing from './Drawing/drawing';
 import ImageCutter from './ImageCutter/imagecutter';
+import PythonProcess from './RunPythonProcess/pythonprocess';
+import PracticeCSS from './CSS practice/PracticeCSS';
+import Welcome from './welcome';
 
-function Index(){
+
+function MainPage(){
   return (
     <Container>
-      <br/>
+      <Welcome/>
       <Row>
         <Col><p><a href="/hello">Hello! 👋</a></p></Col>
       </Row>
@@ -27,6 +31,12 @@ function Index(){
       <Row>
         <Col><p><a href="/imagescraper">Image Cutter ✂️</a></p></Col>
       </Row>
+      <Row>
+        <Col><p><a href="/practiceCSS">Practice CSS ✍</a></p></Col>
+      </Row>
+      {/* <Row>
+        <Col><p><a href="/pythonprocess">Python Process Runner 🐍</a></p></Col>
+      </Row> */}
     </Container>
   )
 }
@@ -59,11 +69,13 @@ class App extends Component {
               </Nav>
             </Collapse> */}
           </Navbar>
-          <Route path="/" exact component={Index} />
+          <Route path="/" exact component={MainPage} />
           <Route path="/hello/" component={First} />
           <Route path="/soundscape/" component={Soundscape} />
           {/* <Route path="/drawing/" component={Drawing} /> */}
           <Route path="/imagescraper/" component={ImageCutter} />
+          <Route path="/practiceCSS" component={PracticeCSS}/>
+          {/* <Route path="/pythonprocess/" component={PythonProcess} /> */}
         </div>
       </Router>
     );
