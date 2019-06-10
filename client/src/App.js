@@ -1,43 +1,42 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,Container, Row, Col  } from 'reactstrap';
 
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 
 import First from './first/first';
 import Soundscape from './Soundscapes/soundscape';
 // import Drawing from './Drawing/drawing';
 import ImageCutter from './ImageCutter/imagecutter';
 import PythonProcess from './RunPythonProcess/pythonprocess';
-import PracticeCSS from './CSS practice/PracticeCSS';
+import ProfileCard from './CSS practice/ProfileCard';
 import Welcome from './welcome';
+import LandingPage from './CSS practice/LandingPage'
 
 
 function MainPage(){
   return (
-    <Container>
+    <div>
       <Welcome/>
-      <Row>
+      <p><a href="/hello">Hello! 👋</a></p>
+      <p><a href="/soundscape">Soundscape 🗻</a></p>
+      <p><a href="/imagescraper">Image Cutter ✂️</a></p>
+      <p><a href="/practiceCSS/card/">Practice CSS ✍</a></p>
+      {/* <p><a href="/pythonprocess">Python Process Runner 🐍</a></p> */}
+      {/* <p><a href="/drawing">Drawing 🎨</a></p> */}
+      {/* <Row>
         <Col><p><a href="/hello">Hello! 👋</a></p></Col>
       </Row>
       <Row>
         <Col><p><a href="/soundscape">Soundscape 🗻</a></p></Col>
       </Row>
-      {/* <Row>
-        <Col><p><a href="/drawing">Drawing 🎨</a></p></Col>
-      </Row> */}
       <Row>
         <Col><p><a href="/imagescraper">Image Cutter ✂️</a></p></Col>
       </Row>
       <Row>
-        <Col><p><a href="/practiceCSS">Practice CSS ✍</a></p></Col>
-      </Row>
-      {/* <Row>
-        <Col><p><a href="/pythonprocess">Python Process Runner 🐍</a></p></Col>
+        <Col><p><a href="/practiceCSS/card/">Practice CSS ✍</a></p></Col>
       </Row> */}
-    </Container>
+    </div>
   )
 }
 
@@ -58,23 +57,27 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar color="light" light>
+          <div className="app-header">
+            <h3 className="app-title"><Link to="/">Experiments</Link></h3>
+          </div>
+          {/* <Navbar color="light" light>
             <NavbarBrand href="/" className="mr-auto ml-auto">Experiments</NavbarBrand>
-            {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar>
                 <NavItem>
                   <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
                 </NavItem>
               </Nav>
-            </Collapse> */}
-          </Navbar>
+            </Collapse>
+          </Navbar> */}
           <Route path="/" exact component={MainPage} />
           <Route path="/hello/" component={First} />
           <Route path="/soundscape/" component={Soundscape} />
           {/* <Route path="/drawing/" component={Drawing} /> */}
           <Route path="/imagescraper/" component={ImageCutter} />
-          <Route path="/practiceCSS" component={PracticeCSS}/>
+          <Route path="/practiceCSS/card/" component={ProfileCard}/>
+          <Route path="/practiceCSS/landing/" component={LandingPage}/>
           {/* <Route path="/pythonprocess/" component={PythonProcess} /> */}
         </div>
       </Router>

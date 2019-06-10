@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Moment from 'moment';
 
-import { Jumbotron,InputGroup, Input, Button } from 'reactstrap';
+import './first.css';
 
 export default class First extends Component {
     constructor(){
@@ -56,27 +56,30 @@ export default class First extends Component {
 
     render(){
         return (
-            <div>
-                <Jumbotron>
+            <div className="guest-wrapper">
+                <div className="guest-form">
                     <h3>Hello! 👋</h3>
-                    <p>Feel free to add your name and a comment in the log book</p>
-
-                    <InputGroup className="md-6">
-                        <Input value={this.state.name} onChange={this.handleChange} placeholder="name"/>
-                    </InputGroup>
-                    <br/>
-                    <InputGroup className="md-6">
-                        <Input value={this.state.comment} onChange={this.handleCommentChange} placeholder="comment"/>
-                    </InputGroup>
-                    <br/>
+                    <p>Feel free to add your name and a comment in the guest book</p>
+                    <input value={this.state.name} onChange={this.handleChange} placeholder="name"/>
+                    <textarea rows="4" value={this.state.comment} onChange={this.handleCommentChange} placeholder="comment"/>
                     <p className="lead">
-                        <Button color="primary" onClick={this.handleClick}>Submit</Button>
+                        <button onClick={this.handleClick}>Submit</button>
                     </p>
-                </Jumbotron>
-                <h3>Logbook</h3>
-                {this.state.data.map((d,id) => {
-                    return <p key={id}>{d.comment} - {d.name} on {Moment(d.time).format("MM-DD-YYYY")}</p>
-                })}
+                </div>
+                <div className="guest-book">
+                    <h3>Guest Book</h3>
+                    <div className="posts">
+                    {this.state.data.map((d,id) => {
+                        return (
+                            <div className="post-card" key={id}>
+                                <h4>{d.name}</h4>
+                                <p>{d.comment}</p>
+                                <span>{Moment(d.time).format("MM-DD-YYYY")}</span>
+                            </div>
+                        )
+                    })}
+                    </div>
+                </div>
             </div>
         )
     }
