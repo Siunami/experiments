@@ -12,7 +12,7 @@
     "react-dom": "^16.8.6",
     "react-p5-wrapper": "0.0.4",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "3.4.4",
     "reactstrap": "^8.0.0"
   },
   "proxy": "http://localhost:5000",
